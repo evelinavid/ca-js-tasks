@@ -28,7 +28,7 @@ console.log({ sentence4 });
 let sentence5 = helpers[8] + helpers[7] + helpers[4] + helpers[7] + nouns[4] + helpers[7] + nouns[7]
 console.log({ sentence5 });
 
-let sentence6 = helpers[8] + helpers[7] + helpers[3] + helpers[7] + nouns[10]
+let sentence6 = helpers[8] + helpers[7] +helpers[4] + helpers[7] + helpers[3] + helpers[7]+nouns[8]+ helpers[7] + nouns[10]
 console.log({ sentence6 });
 
 let sentence7 = helpers[3] + helpers[7] + nouns[9] + helpers[7] + helpers[4] + helpers[7] + helpers[2] + helpers[7] + helpers[6] + helpers[7] + nouns[4]
