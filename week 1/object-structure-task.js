@@ -56,7 +56,7 @@ console.groupEnd();
 
 console.group('šiandien visai geras oras!');
 {
-  const result = obj.f[0].a[0] + obj.y + obj.f[0].a[3] + obj.y + obj.e.a[0].a + obj.y + obj.f[1].a.u + obj.c[1].t;
+  const result = obj.f[0].a[0] + obj.y + obj.f[0].a[3] + obj.y + obj.e.a[0].a + obj.y + obj.f[1].a.u + obj.c[2].t;
   console.log(result);
 }
 console.groupEnd();
