@@ -57,7 +57,7 @@ console.groupCollapsed('2. Atspausdinkite kiekvieno buto kambarių skaičių');
 }
 console.groupEnd();
 
-console.group('3. Atspausdinkite kiekvieno buto bendrą plotą');
+console.groupCollapsed('3. Atspausdinkite kiekvieno buto bendrą plotą');
 // Reikės susumuoti naudojant kaupimo algoritmą
 {
   function sumFlatRooms(flat) {
