@@ -234,44 +234,64 @@ console.groupEnd();
 console.groupCollapsed("https://edabit.com/challenge/48EJWLhF224na8po3");
 {
   function generation(x, y) {
-  
-  const generations = {
-    '-3': {
-      m: 'great grandfather',
-      f: 'great grandmother'
-    },
-    '-2': {
-      m: 'grandfather',
-      f: 'grandmother'
-    },
-    '-1': {
-      m: 'father',
-      f: 'mother'
-    },
-    '0': {
-      m: 'me!',
-      f: 'me!'
-    },
-    '1': {
-      m: 'son',
-      f: 'daughter'
-    },
-    '2': {
-      m: 'grandson',
-      f: 'granddaughter'
-    },
-    '3': {
-      m: 'great grandson',
-      f: 'great granddaughter'
-    },
-    
-  };
-  return generations[x][y]
-}
-  console.log(generation(2,'f'));
-  console.log(generation(-3,'m'));
-  console.log(generation(1,'f'));
+
+    const generations = {
+      '-3': {
+        m: 'great grandfather',
+        f: 'great grandmother'
+      },
+      '-2': {
+        m: 'grandfather',
+        f: 'grandmother'
+      },
+      '-1': {
+        m: 'father',
+        f: 'mother'
+      },
+      '0': {
+        m: 'me!',
+        f: 'me!'
+      },
+      '1': {
+        m: 'son',
+        f: 'daughter'
+      },
+      '2': {
+        m: 'grandson',
+        f: 'granddaughter'
+      },
+      '3': {
+        m: 'great grandson',
+        f: 'great granddaughter'
+      },
+
+    };
+    return generations[x][y]
+  }
+  console.log(generation(2, 'f'));
+  console.log(generation(-3, 'm'));
+  console.log(generation(1, 'f'));
 }
 
 console.groupEnd();
 
+console.groupCollapsed("https://edabit.com/challenge/rvsvGvqZ3BzNieKqA");
+{
+  function detectWord(str) {
+    let row = '';
+    for (let i = 0; i < str.length; i++) {
+      if (str[i].toLowerCase() === str[i]) {
+        const value = str[i];
+        row += value;
+      }
+    }
+    return row;
+  }
+
+  console.table({
+    'detectWord("UcUNFYGaFYFYGtNUH': detectWord("UcUNFYGaFYFYGtNUH"),
+    'detectWord("bEEFGBuFBRrHgUHlNFYaYr': detectWord("bEEFGBuFBRrHgUHlNFYaYr"),
+    'detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment': detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment")
+  });
+}
+console.groupEnd();
