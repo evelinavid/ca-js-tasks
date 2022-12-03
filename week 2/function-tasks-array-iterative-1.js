@@ -142,24 +142,27 @@ console.groupCollapsed('9. Atspausdinkite žmones kurie yra susituokę');
 }
 console.groupEnd();
 
-console.group('10. Sukurkite objektą, kuriame būtų apskaičiuotas vairuojančių žmonių kiekis pagal lytį');
-{
-  function filterDrivingMale(person) {
-    return person.sex === 'male' && person.hasCar === true;
-  };
-  const a = people.filter(filterDrivingMale);
-
-
-  function countDrivingMales(prevSum, person) {
-    // console.log(person, prevSum)
-    return prevSum + parseFloat(person.a);
+console.groupCollapsed('10. Sukurkite objektą, kuriame būtų apskaičiuotas vairuojančių žmonių kiekis pagal lytį');
+/*
+  {
+    male: 2,
+    female: 3
   }
-  const x = people.reduce(countDrivingMales, 0)
+*/
+{
+  function countDrivingPeople(groupedObj, person) {
+    if (person.hasCar === true) {
+      if (person.sex === 'male') {
+        groupedObj.male += 1
+      }
+      if (person.sex === 'female') {
+        groupedObj.female += 1
+      }
+    }
+    return groupedObj;
+  }
+  const x = people.reduce(countDrivingPeople, { male: 0, female: 0 })
   console.log(x);
-
-  // function filterDrivingFemale(person){
-  //   return person.sex === 'female' || person.hasCar === true;
-  // }
 
 }
 console.groupEnd();
