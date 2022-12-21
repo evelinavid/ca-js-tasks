@@ -53,56 +53,20 @@ console.log();
 console.group("30. Sukurkite funkciją, kuri taiso pastraipos klaidas");
 {
 
-  function capitalizeFirstLetter(str) {
-    return str[0].toUpperCase();
-  }
-  // console.log(capitalizeFirstLetter('laba diena, mano vardas vištiena.'))
-  function splitIntoSentences(paragraph) {
-    /*
-      2.1 Atskirti pagal sakinio baigimo ženklus ir juos įsiminti
-      2.2 Pašalinti tuščius tarpus iš kairės ir dešinės
-      2.3 grąžinti objektą su dviem masyvais:
-      {
-        sentences: [sentence1, sentence2, ... , sentenceN],
-        separator: [ '.', '?', ... , '!'],
-      }
-    */
-
-    const sentences = paragraph.split(/[\\.!\?]/);
-    const separators = paragraph.match(/[\\.!?,\])]/g);
-    const newSentencesArr = [];
-    sentences.forEach(x=>{ newSentencesArr.push(x.trim())});
-
-    return {
-    sentences: newSentencesArr,
-    separators: separators,
-    }
-  }
-  // console.log(splitIntoSentences('    labas , as jonas . Tave      vadina Kęstu? Taip ir žinojau  !    '))
-
-  function reduceEmptySpaces(str) {
-    // Jūsų sugalvota logika, kaip šalinti tarpus prieš kablelį ir kelis tarpus iš eilės
-    return str.replace(/\s\s+/g, ' ').replace(/\s,/g, ',');
-  }
-  // console.log(reduceEmptySpaces('    labas , as jonas . Tave      vadina Kęstu? Taip ir žinojau  !    '))
-
+  const capitalizeFirstLetter = (str => str[0].toUpperCase() + str.slice(1));
 
   // 1.
-  function fixParagraph(paragraph) {
-    /*
-      2. Pirmiausiai suskirstome į sakinius, naudojant splitIntoSentences: 
-            string  ->  {
-                          sentences: [sentence1, sentence2, ... , sentenceN],
-                          separator: [ '.', '?', ... , '!'],
-                        }
-      3. Redaguoti kiekvieną sakinį, naudojant funkciją reduceEmptySpaces
-      4. Redaguoti kiekvieną sakinį, naudojant funkciją capitalizeFirstLetter
-      5. Sujungti sakinius su atitinkamais sakinių skiriamaisiais/baigiamaisiais ženklais
-      6. Grąžinti rezultatą.
-    */
+  const fixParagraph = (paragraph) => paragraph
+    .split(/([.!?])/)
+    .map(sentence => sentence.trim())
+    .filter((x, i, arr) => i < arr.length - 1)
+    .map(capitalizeFirstLetter)
+    .join('')
+    .replaceAll(/\s,/g, ',')
+    .replaceAll(/\s\s+/g, ' ')
+    .replaceAll(/\s+([!?.,])/g, '$1')
+    .replaceAll(/\s*([!?.])\s*(.)\s*/g, '$1 $2')
 
-      
-  }
 
   const paragraph = '    labas , as jonas . Tave      vadina Kęstu? Taip ir žinojau  !    ';
   const fixedParagraph = fixParagraph(paragraph);
@@ -118,7 +82,7 @@ console.log();
 console.group("31. Sukurkite funkciją, kuri pirmu parametru priima sakinį ir sudeda atskirus sakinio žodžius į masyvą");
 {
   function splitSentence(sentence) {
-   return sentence.split(/\s/g)
+    return sentence.split(/\s/g)
   }
   console.log('---');
   console.log({
@@ -138,7 +102,7 @@ console.log();
 console.group("32. Sukurkite funkciją, kuri pirmu parametru priimą <string>'ą, o antruoju skiriklį");
 {
   function explode(str, separator) {
-   return str.split()
+    return str.split(separator)
   }
   console.log('---');
   console.log({
